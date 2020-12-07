@@ -4,7 +4,23 @@ body {
     background-repeat: no-repeat;
 }
 
-section1{
+.dragon{
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
+    height: 310px;
+}
+.slime{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.dragon{
+    size:cover;
+    margin-top: 100px;
+}
+
+.slime2{
+    height: 100px;
+    width: 100px;
+    margin-right: 100px;
 }
