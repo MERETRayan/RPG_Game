@@ -6,18 +6,24 @@ body {
 
 .dragon{
     display: flex;
-    flex-direction: row-reverse;
+    align-content: space-around;
     height: 310px;
 }
 .slime{
     display: flex;
-    flex-direction: row-reverse;
+    align-content: space-around;
 }
 
-.dragon{
+.dragon2{
     size:cover;
     margin-top: 100px;
 }
+.png{
+    margin-top: 1px;
+    
+}
+
+
 
 .slime2{
     height: 100px;
