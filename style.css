@@ -1,32 +1,84 @@
 body {
-    background-image: url("Background.png");
+    background-image: url("Background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }
 
+
+.globale {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height : cover ;
+
+}
+
+.Perso{
+    display: flex;
+    justify-content: center;
+ 
+}
+.Jerome{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.Monstre{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 600px;
+}
+.ghost{
+    height: 300px;
+    width: auto;
+
+}
+.poulet{
+    height: 300px;
+    width: auto;
+ 
+}
 .dragon{
+    height: 300px;
+    width: auto;
+
+}
+.Kilyann{
     display: flex;
-    align-content: space-around;
-    height: 310px;
-}
-.slime{
-    display: flex;
-    align-content: space-around;
-}
-
-.dragon2{
-    size:cover;
-    margin-top: 100px;
-}
-.png{
-    margin-top: 1px;
-    
-}
-
-
-
-.slime2{
-    height: 100px;
+    background:linear-gradient(grey,white );
+    border: 1px solid black;
+    border-radius: 10px;
     width: 100px;
-    margin-right: 100px;
+    flex-direction: column;
+}
+.Alice{
+    display: flex;
+    background:linear-gradient(grey,white );
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 100px;
+    flex-direction: column;
+}
+.John{
+    display: flex;
+    background:linear-gradient(grey,white );
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 100px;
+    flex-direction: column;
+}
+.Tibleu{
+    display: flex;
+    background:linear-gradient(grey,white );
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 100px;
+    flex-direction: column;
+   
+}
+div{
+    background:linear-gradient(grey,white );
+    border: 1px solid black; 
 }
