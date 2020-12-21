@@ -1,34 +1,25 @@
 body {
     background-image: url("Background.jpg");
-    background-size: cover;
     background-repeat: no-repeat;
 }
 
 
-.globale {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height : cover ;
-
-}
-
 .Perso{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    width:1280px;
  
 }
-.Jerome{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.Globale{
+    display:flex;
+    flex-direction: column;
 
 }
 .Monstre{
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 600px;
+    justify-content: space-around;   
+    align-content: flex-end;
+    width: 1280px;
 }
 .ghost{
     height: 300px;
@@ -51,7 +42,9 @@ body {
     border: 1px solid black;
     border-radius: 10px;
     width: 100px;
+    height: 140px;
     flex-direction: column;
+    justify-content: flex-end;
 }
 .Alice{
     display: flex;
@@ -59,7 +52,9 @@ body {
     border: 1px solid black;
     border-radius: 10px;
     width: 100px;
+    height: 140px;
     flex-direction: column;
+    justify-content: flex-end;
 }
 .John{
     display: flex;
@@ -67,7 +62,9 @@ body {
     border: 1px solid black;
     border-radius: 10px;
     width: 100px;
+    height: 140px;
     flex-direction: column;
+    justify-content: flex-end;
 }
 .Tibleu{
     display: flex;
@@ -75,10 +72,57 @@ body {
     border: 1px solid black;
     border-radius: 10px;
     width: 100px;
+    height: 140px;
     flex-direction: column;
+    justify-content: flex-end;
    
 }
 div{
     background:linear-gradient(grey,white );
     border: 1px solid black; 
+    display:flex;
 }
+.Skill{
+    display: flex;
+    background:linear-gradient(grey,white );
+    border: 1px solid black; 
+    border-radius: 10px;
+    width: 100px;
+    height: 160px;
+    flex-direction: column;
+    margin-top: 540px;
+    position: absolute;
+}
+div20:hover{
+    background:linear-gradient(cyan,white );
+}
+div30:hover{
+    background:linear-gradient(red,white );
+}
+div40:hover{
+    background:linear-gradient(blue,white );
+}
+div15{
+    background:linear-gradient(purple,white );
+    border: 1px solid black; 
+    display:none; 
+    margin-left: 10%;
+}
+div13{
+    background:linear-gradient(purple,white );
+    border: 1px solid black; 
+    display:none;
+    margin-left: 45%;
+}
+div14{
+    background:linear-gradient(purple,white );
+    border: 1px solid black; 
+    display:none;
+    margin-left: 80%;
+}
+.StatMob{
+    display : flex ;
+    width: 1220px;
+
+}
+
