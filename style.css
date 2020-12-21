@@ -34,7 +34,7 @@ body {
 }
 .Kilyann{
     display: flex;
-    background:linear-gradient(grey,white );
+    background:linear-gradient(purple,white );
     border: 1px solid black;
     border-radius: 10px;
     width: 100px;
@@ -44,7 +44,7 @@ body {
 }
 .Alice{
     display: flex;
-    background:linear-gradient(grey,white );
+    background:linear-gradient(purple,white);
     border: 1px solid black;
     border-radius: 10px;
     width: 100px;
@@ -54,7 +54,7 @@ body {
 }
 .John{
     display: flex;
-    background:linear-gradient(grey,white );
+    background:linear-gradient(purple,white );
     border: 1px solid black;
     border-radius: 10px;
     width: 100px;
@@ -64,7 +64,7 @@ body {
 }
 .Tibleu{
     display: flex;
-    background:linear-gradient(grey,white );
+    background:linear-gradient(purple,white );
     border: 1px solid black;
     border-radius: 10px;
     width: 100px;
@@ -74,20 +74,21 @@ body {
    
 }
 div{
-    background:linear-gradient(grey,white );
+    background:linear-gradient(purple,white );
     border: 1px solid black; 
     display:flex;
 }
 .Skill{
     display: flex;
-    background:linear-gradient(grey,white );
+    background:linear-gradient(purple,white );
     border: 1px solid black; 
     border-radius: 10px;
     width: 100px;
     height: 160px;
     flex-direction: column;
-    margin-top:10px;
-    position: absolute;
+    position:fixed;
+    left: 10px;
+    top:55%;
     
 }
 div20:hover{
