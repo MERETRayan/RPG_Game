@@ -30,4 +30,3 @@ function mouseOver3() {
 function mouseOut3() {
   document.getElementById("StatPoulet").style.display ='none';
 }
-

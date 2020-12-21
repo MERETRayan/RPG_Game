@@ -2,8 +2,6 @@ body {
     background-image: url("Background.jpg");
     background-repeat: no-repeat;
 }
-
-
 .Perso{
     display: flex;
     justify-content: flex-start;
@@ -24,12 +22,10 @@ body {
 .ghost{
     height: 300px;
     width: auto;
-
 }
 .poulet{
     height: 300px;
     width: auto;
- 
 }
 .dragon{
     height: 300px;
@@ -90,8 +86,9 @@ div{
     width: 100px;
     height: 160px;
     flex-direction: column;
-    margin-top: 540px;
+    margin-top:10px;
     position: absolute;
+    
 }
 div20:hover{
     background:linear-gradient(cyan,white );
