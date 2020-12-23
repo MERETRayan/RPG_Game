@@ -1,6 +1,7 @@
 body {
     background-image: url("Background.jpg");
     background-repeat: no-repeat;
+    user-select: none;
 }
 .Perso{
     display: flex;
@@ -34,93 +35,145 @@ body {
 }
 .Kilyann{
     display: flex;
-    background:linear-gradient(purple,white );
-    border: 1px solid black;
+    color:white;
+    background:linear-gradient(purple,black );
+    border: 1px solid white;
     border-radius: 10px;
     width: 100px;
-    height: 140px;
+    height: 105px;
     flex-direction: column;
     justify-content: flex-end;
 }
 .Alice{
     display: flex;
-    background:linear-gradient(purple,white);
-    border: 1px solid black;
+    background:linear-gradient(purple,black);
+    color:white;
+    border: 1px solid white;
     border-radius: 10px;
     width: 100px;
-    height: 140px;
+    height: 105px;
     flex-direction: column;
     justify-content: flex-end;
 }
 .John{
     display: flex;
-    background:linear-gradient(purple,white );
-    border: 1px solid black;
+    color:white;
+    background:linear-gradient(purple,black );
+    border: 1px solid white;
     border-radius: 10px;
     width: 100px;
-    height: 140px;
+    height: 105px;
     flex-direction: column;
     justify-content: flex-end;
 }
 .Tibleu{
     display: flex;
-    background:linear-gradient(purple,white );
-    border: 1px solid black;
+    color:white;
+    background:linear-gradient(purple,black );
+    border: 1px solid white;
     border-radius: 10px;
     width: 100px;
-    height: 140px;
+    height: 105px;
     flex-direction: column;
     justify-content: flex-end;
    
 }
 div{
-    background:linear-gradient(purple,white );
-    border: 1px solid black; 
+    background:linear-gradient(magenta,Black );
+    border: 1px solid white; 
     display:flex;
 }
-.Skill{
+.Skill1{
     display: flex;
-    background:linear-gradient(purple,white );
-    border: 1px solid black; 
-    border-radius: 10px;
+    background:linear-gradient(purple,black );
+    color:white;
+    border: 1px solid white; 
     width: 100px;
     height: 160px;
     flex-direction: column;
-    position:fixed;
     left: 10px;
-    top:55%;
+
+
+}
+.Skill2{
+    display: flex;
+    background:linear-gradient(purple,black );
+    color:white;
+    border: 1px solid white; 
+    width: 100px;
+    height: 160px;
+    flex-direction: column;
+    left: 10px;
+    visibility: hidden;
+ 
     
+
+}
+.Skill3{
+    display: flex;
+    background:linear-gradient(purple,black );
+    color:white;
+    border: 1px solid white; 
+    width: 100px;
+    height: 160px;
+    flex-direction: column;
+    left: 10px;
+    visibility: hidden;
+
+}
+.Skill4{
+    display: flex;
+    background:linear-gradient(purple,black );
+    color:white;
+    border: 1px solid white; 
+    width: 100px;
+    height: 160px;
+    flex-direction: column;
+    left: 10px;
+    visibility: hidden;
+
 }
 div20:hover{
-    background:linear-gradient(cyan,white );
+    background:linear-gradient(cyan,black );
 }
 div30:hover{
-    background:linear-gradient(red,white );
+    background:linear-gradient(red,black );
+
 }
 div40:hover{
-    background:linear-gradient(blue,white );
+    background:linear-gradient(blue,black );
+}
+div20,div30,div40{
+    height:40px;
 }
 div15{
-    background:linear-gradient(purple,white );
-    border: 1px solid black; 
-    display:none; 
-    margin-left: 10%;
+    background:linear-gradient(purple,black );
+    border: 1px solid white; 
+    visibility: hidden;
+    color :white ;
+
 }
 div13{
-    background:linear-gradient(purple,white );
-    border: 1px solid black; 
-    display:none;
-    margin-left: 45%;
+    background:linear-gradient(purple,black );
+    border: 1px solid white; 
+    visibility: hidden;
+    color :white ;
+
 }
 div14{
-    background:linear-gradient(purple,white );
-    border: 1px solid black; 
-    display:none;
-    margin-left: 80%;
+    background:linear-gradient(purple,black );
+    border: 1px solid white; 
+    visibility: hidden;
+    color :white ;
 }
 .StatMob{
     display : flex ;
-    width: 1220px;
+    justify-content: space-around ;
+    width: 1230px;
+
 
 }
-
+section17{
+    display: flex;
+    flex-direction: row;
+}
