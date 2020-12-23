@@ -181,3 +181,20 @@ section17{
 p{
     height:10px;
 }
+
+#azerty {
+    color: azure;
+}
+#gameOver{
+    display: flex;
+    height: 300px;
+    width: 500px;
+    background-color: black;
+    position: fixed;
+    color: purple;
+    border: 1px solid white;
+    font-size:60px;
+    text-align: center;
+    visibility: hidden;
+
+}

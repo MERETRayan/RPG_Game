@@ -10,11 +10,11 @@ document.getElementById("poulet").onmouseout = function() {mouseOut3()};
 //changement de perso //
 
 //degat mob attaque de base // 
-player = document.getElementById("attack").onclick = function() {degat(atkPlayer,pvMob,target)};
-player = document.getElementById("attack1").onclick = function() {degat(atkPlayer,pvMob,target)};
-player = document.getElementById("attack2").onclick = function() {degat(atkPlayer,pvMob,target)};
-player = document.getElementById("attack3").onclick = function() {degat(atkPlayer,pvMob,target)};
-player = document.getElementById("heal").onclick = function() {heal(pvPlayer,pvmaxPlayer)};
+document.getElementById("attack").onclick = function() {degat(atkPlayer,pvMob,target,nbPLayer)};
+document.getElementById("attack1").onclick = function() {degat(atkPlayer,pvMob,target,nbPLayer)};
+document.getElementById("attack2").onclick = function() {degat(atkPlayer,pvMob,target,nbPLayer)};
+document.getElementById("attack3").onclick = function() {degat(atkPlayer,pvMob,target,nbPLayer)};
+document.getElementById("heal").onclick = function() {heal(pvPlayer,pvmaxPlayer)};
 //pvMob = document.getElementById("defence").onclick = function() {degatAttack(defPlayer)};
 // ciblage mob //
 target = document.getElementById("fantome").onclick = function() {cible()};
@@ -23,16 +23,55 @@ target = document.getElementById("dragon").onclick = function() {cible3()};
 // fonction etat mob // 
 
 degat = function(atkPlayer,pvMob,target){
-  pvMob = degatAttack(atkPlayer,pvMob,target,player);
+  pvMob = degatAttack(atkPlayer,pvMob,target,player,nbMob);
   player = chgtPlayer(player,pvPlayer);
-  return player 
+  monstreTurn = monstreTurn + 1 ;  
+  if (monstreTurn==4 && target!=8 ){
+    monstreTurn = 0;
+    for (let i = 0 ; i <= nbMob; i++){
+      attaqueMob(monstreTurn,defPlayer,pvPlayer,nbPLayer);
+      document.getElementById("azerty").innerHTML=pvPlayer;
+    }
+    setTimeout(() => {
+  
+    }, 5000);
+  }
+  initialisationVie(pvPlayer,pvmaxPlayer,maxmana,mana);
+  return player , monstreTurn ,pvPlayer ;
 }
+
+
+
+
+
 heal = function(pvPlayer,pvmaxPlayer){
   pvPlayer = soin (pvPlayer,pvmaxPlayer);
   player = chgtPlayer(player,pvPlayer);
   initialisationVie(pvPlayer,pvmaxPlayer,maxmana,mana);
-  return player , pvPlayer;
+  
+  monstreTurn = monstreTurn + 1 ; 
+  if (monstreTurn==4 ){
+    monstreTurn = 0;
+    if (target !=8 ){     
+      for (let i = 0 ; i <= nbMob; i++){
+        attaqueMob(monstreTurn,defPlayer,pvPlayer,nbPLayer);
+        document.getElementById("azerty").innerHTML=pvPlayer;
+      
+    }
+    }
+    setTimeout(() => {
+  
+    }, 5000);
+  }
+  initialisationVie(pvPlayer,pvmaxPlayer,maxmana,mana);
+  return player , pvPlayer ,monstreTurn ;
 }
+
+
+
+
+
+
 
 function mouseOver(pvMob) {
   document.getElementById("StatFantome").style.visibility = 'visible';
@@ -57,35 +96,71 @@ function mouseOut3() {
   document.getElementById("StatPoulet").style.visibility ='hidden';
 }
 function chgtPlayer(player,pvPlayer) {
+  if(pvPlayer[0]<=0){
+    if(pvPlayer[1]<=0){
+      if(pvPlayer[2]<=0){
+        if(pvPlayer[3]<=0){
+          document.getElementById("Skill4").style.visibility="hidden";
+          document.getElementById("Skill3").style.visibility="hidden";
+          document.getElementById("Skill2").style.visibility="hidden";
+          document.getElementById("Skill1").style.visibility="hidden";
+          document.getElementById("gameOver").style.visibility="visible";
+    
+        }
+      }
+    }
+  }
   if (player==0){
     if (pvPlayer[player]>0 ) {
-      document.getElementById("Skill1").style.visibility="hidden";
-      document.getElementById("Skill2").style.visibility="visible";
+      document.getElementById("Skill1").style.visibility="visible";
+      document.getElementById("Skill2").style.visibility="hidden";
+      document.getElementById("Skill4").style.visibility="hidden";
+      document.getElementById("Skill3").style.visibility="hidden";
     }
+    else {
+      player ++
+    }
+    
   }
   if (player==1){
     if (pvPlayer[player]>0 ) {
-      document.getElementById("Skill2").style.visibility="hidden";
-      document.getElementById("Skill3").style.visibility="visible";
+      document.getElementById("Skill1").style.visibility="hidden";
+      document.getElementById("Skill4").style.visibility="hidden";
+      document.getElementById("Skill2").style.visibility="visible";
+      document.getElementById("Skill3").style.visibility="hidden";
+    }
+    else {
+      player ++
     }
   }
   if (player==2){
     if (pvPlayer[player]>0 ) {
-      document.getElementById("Skill3").style.visibility="hidden";
-      document.getElementById("Skill4").style.visibility="visible";
+      document.getElementById("Skill1").style.visibility="hidden";
+      document.getElementById("Skill2").style.visibility="hidden";
+      document.getElementById("Skill3").style.visibility="visible";
+      document.getElementById("Skill4").style.visibility="hidden";
+    }
+    else {
+      player ++
     }
   }
   if (player==3){
     if (pvPlayer[player]>0 ) {
-      document.getElementById("Skill4").style.visibility="hidden";
-      document.getElementById("Skill1").style.visibility="visible";
+      document.getElementById("Skill4").style.visibility="visible";
+      document.getElementById("Skill3").style.visibility="hidden";
+      document.getElementById("Skill2").style.visibility="hidden";
+      document.getElementById("Skill1").style.visibility="hidden";
+    }
+    else {
+      player ++
     }
   }
   player ++ ; 
   if (player>3){
     player=0;
+    
   }
-  return player;
+  return player ;
 }
 // fonction de ciblage // 
 function cible(){
@@ -110,10 +185,11 @@ function cible3(){
   return target ;
 }
 // fonction de Skill // 
-function degatAttack(a,b,c,player) {
+function degatAttack(a,b,c,player,nbMob) {
   if (c==0){
     b[0]=b[0]-a[player];
     if (b[0]<=0){
+      nbMob=nbMob-1;
       document.getElementById("fantome").style.display="none"
       document.getElementById("StatFantome").style.display="none"
       document.getElementById("fantome").style.border="0px solid red "
@@ -123,6 +199,7 @@ function degatAttack(a,b,c,player) {
   if (c==1){
     b[1]=b[1]-a[player];    
     if (b[1]<=0){
+      nbMob=nbMob-1;
       document.getElementById("poulet").style.display="none"
       document.getElementById("StatPoulet").style.display="none"
       document.getElementById("poulet").style.border="0px solid red "
@@ -132,6 +209,7 @@ function degatAttack(a,b,c,player) {
   if (c==2){
     b[2]=b[2]-a[player];    
     if (b[2]<=0){
+      nbMob=nbMob-1;
       document.getElementById("dragon").style.display="none"
       document.getElementById("StatDragon").style.display="none"
       document.getElementById("dragon").style.border="0px solid red "
@@ -152,7 +230,7 @@ function soin(pvPlayer,pvmaxPlayer) {
     }  
   }
   
-  pvPlayer[stockage] = pvPlayer[stockage] + 30;
+  pvPlayer[stockage] = pvPlayer[stockage] + 50;
   if (pvPlayer[stockage]>pvmaxPlayer[stockage]){
     pvPlayer[stockage]=pvmaxPlayer[stockage];
   }
@@ -170,17 +248,48 @@ function initialisationVie(pvPlayer,pvmaxPlayer,mana,maxmana){
   document.getElementById("Alice2").innerHTML=mana[3]+"/"+maxmana[3]+" Mana" ; 
 }
 
+
+function attaqueMob (monstreTurn,defPlayer,pvPlayer,nbPLayer){  
+  var cibleMonstre = Math.floor(Math.random()*nbPLayer);
+  while (pvPlayer[cibleMonstre] <= 0 ){
+    cibleMonstre = Math.floor(Math.random()*nbPLayer);
+    if(pvPlayer[0]<=0){
+      if(pvPlayer[1]<=0){
+        if(pvPlayer[2]<=0){
+          if(pvPlayer[3]<=0){
+            document.getElementById("gameOver").style.visibility="visible";
+      
+          }
+        }
+      }
+    }
+  }  
+  pvPlayer[cibleMonstre]=pvPlayer[cibleMonstre]-(60-defPlayer[cibleMonstre]);
+  if (pvPlayer[cibleMonstre]<0){
+    pvPlayer[cibleMonstre]=0;
+  }
+  
+  return pvPlayer[cibleMonstre] , monstreTurn ; 
+}
+
+setTimeout(() => {
+  
+}, 5000);
+
 var statFantome = document.getElementById("StatFantome");
 var statDragon = document.getElementById("StatDragon");
 var statPoulet = document.getElementById("StatPoulet");
 var pvMob = [100,250,400];
-var pvPlayer = [130,200,200,200];
+var pvPlayer = [200,200,200,200];
 var pvmaxPlayer = [200,200,200,200];
 var atkPlayer = [20,30,10,50];
 var mana = [50,80,40,20];
 var maxmana = [50,80,40,20];
-var defPlayer = [50,20,40,80];
+var defPlayer = [30,20,30,50];
 var target = 8 ;
-var player = 0 ;
+var player = 1 ;
+var monstreTurn = 0 ;
+var nbPLayer = 4 ; 
+var nbMob = 2;
 
-initialisationVie(pvPlayer,pvmaxPlayer,mana,maxmana)
+initialisationVie(pvPlayer,pvmaxPlayer,mana,maxmana);
