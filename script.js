@@ -10,11 +10,11 @@ document.getElementById("poulet").onmouseout = function() {mouseOut3()};
 //changement de perso //
 
 //degat mob attaque de base // 
-document.getElementById("attack").onclick = function() {degat(atkPlayer,pvMob,target)};
-document.getElementById("attack1").onclick = function() {degat(atkPlayer,pvMob,target)};
-document.getElementById("attack2").onclick = function() {degat(atkPlayer,pvMob,target)};
-document.getElementById("attack3").onclick = function() {degat(atkPlayer,pvMob,target)};
-//pvMob = document.getElementById("poison").onclick = function() {degatAttack(atkPlayer,pvMob,target)};
+player = document.getElementById("attack").onclick = function() {degat(atkPlayer,pvMob,target)};
+player = document.getElementById("attack1").onclick = function() {degat(atkPlayer,pvMob,target)};
+player = document.getElementById("attack2").onclick = function() {degat(atkPlayer,pvMob,target)};
+player = document.getElementById("attack3").onclick = function() {degat(atkPlayer,pvMob,target)};
+player = document.getElementById("heal").onclick = function() {heal(pvPlayer,pvmaxPlayer)};
 //pvMob = document.getElementById("defence").onclick = function() {degatAttack(defPlayer)};
 // ciblage mob //
 target = document.getElementById("fantome").onclick = function() {cible()};
@@ -25,6 +25,13 @@ target = document.getElementById("dragon").onclick = function() {cible3()};
 degat = function(atkPlayer,pvMob,target){
   pvMob = degatAttack(atkPlayer,pvMob,target,player);
   player = chgtPlayer(player,pvPlayer);
+  return player 
+}
+heal = function(pvPlayer,pvmaxPlayer){
+  pvPlayer = soin (pvPlayer,pvmaxPlayer);
+  player = chgtPlayer(player,pvPlayer);
+  initialisationVie(pvPlayer,pvmaxPlayer,maxmana,mana);
+  return player , pvPlayer;
 }
 
 function mouseOver(pvMob) {
@@ -102,7 +109,7 @@ function cible3(){
   document.getElementById("poulet").style.border = '0px solid red ' ;
   return target ;
 }
-// fonction de degat Perso 2 // 
+// fonction de Skill // 
 function degatAttack(a,b,c,player) {
   if (c==0){
     b[0]=b[0]-a[player];
@@ -135,13 +142,45 @@ function degatAttack(a,b,c,player) {
   }
 }
 
+function soin(pvPlayer,pvmaxPlayer) {  
+  var pvMin=pvPlayer[0];
+  var stockage=0;
+  for (let i = 0 ; i <= 3; i++){
+    if(pvMin>pvPlayer[i]){
+      pvMin=pvPlayer[i];
+      stockage=i;    
+    }  
+  }
+  
+  pvPlayer[stockage] = pvPlayer[stockage] + 30;
+  if (pvPlayer[stockage]>pvmaxPlayer[stockage]){
+    pvPlayer[stockage]=pvmaxPlayer[stockage];
+  }
+  return pvPlayer ; 
+}
+
+function initialisationVie(pvPlayer,pvmaxPlayer,mana,maxmana){
+  document.getElementById("Kilyann1").innerHTML=pvPlayer[0]+"/"+pvmaxPlayer[0]+"  Pv" ; 
+  document.getElementById("Kilyann2").innerHTML=mana[0]+"/"+maxmana[0]+" Mana" ; 
+  document.getElementById("Tibleu1").innerHTML=pvPlayer[1]+"/"+pvmaxPlayer[1] + " Pv" ; 
+  document.getElementById("Tibleu2").innerHTML=mana[1]+"/"+maxmana[1]+" Mana" ; 
+  document.getElementById("John1").innerHTML=pvPlayer[2]+"/"+pvmaxPlayer[2] + " Pv" ; 
+  document.getElementById("John2").innerHTML=mana[2]+"/"+maxmana[2]+" Mana" ; 
+  document.getElementById("Alice1").innerHTML=pvPlayer[3]+"/"+pvmaxPlayer[3] + " Pv" ; 
+  document.getElementById("Alice2").innerHTML=mana[3]+"/"+maxmana[3]+" Mana" ; 
+}
+
 var statFantome = document.getElementById("StatFantome");
 var statDragon = document.getElementById("StatDragon");
 var statPoulet = document.getElementById("StatPoulet");
 var pvMob = [100,250,400];
-var pvPlayer = [200,150,240,300];
+var pvPlayer = [130,200,200,200];
+var pvmaxPlayer = [200,200,200,200];
 var atkPlayer = [20,30,10,50];
 var mana = [50,80,40,20];
+var maxmana = [50,80,40,20];
 var defPlayer = [50,20,40,80];
 var target = 8 ;
 var player = 0 ;
+
+initialisationVie(pvPlayer,pvmaxPlayer,mana,maxmana)

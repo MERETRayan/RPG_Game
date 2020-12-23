@@ -177,3 +177,7 @@ section17{
     display: flex;
     flex-direction: row;
 }
+
+p{
+    height:10px;
+}
