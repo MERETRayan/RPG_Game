@@ -194,7 +194,7 @@ function degatAttack(a,b,c,player,nbMob) {
       document.getElementById("StatFantome").style.display="none"
       document.getElementById("fantome").style.border="0px solid red "
     }
-    return b[0];
+    return b[0] , nbMob;
   }
   if (c==1){
     b[1]=b[1]-a[player];    
@@ -204,7 +204,7 @@ function degatAttack(a,b,c,player,nbMob) {
       document.getElementById("StatPoulet").style.display="none"
       document.getElementById("poulet").style.border="0px solid red "
     }
-    return b[1];
+    return b[1] , nbMob;
   }
   if (c==2){
     b[2]=b[2]-a[player];    
@@ -216,7 +216,7 @@ function degatAttack(a,b,c,player,nbMob) {
       
     }
 
-    return b[2];
+    return b[2] , nbMob;
   }
 }
 
